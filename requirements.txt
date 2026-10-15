@@ -1,0 +1,9 @@
+Pillow
+python-pptx
+pillow-heif
+imageio-ffmpeg
+Flask
+google-api-python-client
+google-auth
+google-auth-oauthlib
+requests

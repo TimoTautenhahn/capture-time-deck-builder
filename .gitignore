@@ -1,0 +1,16 @@
+﻿node_modules/
+.venv/
+venv/
+__pycache__/
+.env
+.env.*
+!.env.example
+dist/
+build/
+.next/
+.DS_Store
+*.pem
+*.key
+credentials.json
+rclone.conf
+.token*

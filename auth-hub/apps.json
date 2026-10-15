@@ -1,0 +1,22 @@
+{
+  "apps": [
+    {
+      "appId": "presentationPublisher",
+      "appName": "Presentation Publisher",
+      "scopes": [
+        "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/presentations"
+      ],
+      "defaultReturnTo": "http://127.0.0.1:8788"
+    },
+    {
+      "appId": "remarkablePush",
+      "appName": "Remarkable Push",
+      "scopes": [
+        "https://www.googleapis.com/auth/drive.readonly",
+        "https://www.googleapis.com/auth/drive.file"
+      ],
+      "defaultReturnTo": ""
+    }
+  ]
+}
