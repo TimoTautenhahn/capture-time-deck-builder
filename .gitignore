@@ -14,3 +14,13 @@ build/
 credentials.json
 rclone.conf
 .token*
+
+# Generated output and runtime state
+output/
+sample_media/_converted_videos/
+*.log
+webapp/broker_auth_state.json
+webapp/run_state_*.json
+webapp/drive_existing_media_index.json
+webapp/capture_time_cache.json
+auth-hub/state/

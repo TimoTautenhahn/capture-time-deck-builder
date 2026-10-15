@@ -646,7 +646,7 @@ function getFileByPath_(rootFolder, relPath) {
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Erstellt eine bild- und videobasierte PPTX (Google Slides kompatibel).")
-    parser.add_argument("--input", default="images", help="Quellordner mit Medien (rekursiv).")
+    parser.add_argument("--input", default="sample_media", help="Quellordner mit Medien (rekursiv).")
     parser.add_argument("--output", default="output/all_images.pptx", help="Ziel-PPTX fuer Vollmodus.")
     parser.add_argument("--test-output", default="output/test_preview.pptx", help="Ziel-PPTX fuer Testmodus.")
     parser.add_argument("--report", default="output/run_report.json", help="JSON-Bericht zur Generierung.")

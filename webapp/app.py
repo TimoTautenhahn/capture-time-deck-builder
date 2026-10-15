@@ -32,7 +32,7 @@ AUTH_STATE_FILE = APP_DIR / "broker_auth_state.json"
 DRIVE_INDEX_FILE = APP_DIR / "drive_existing_media_index.json"
 CAPTURE_CACHE_FILE = APP_DIR / "capture_time_cache.json"
 
-DEFAULT_FOLDER_ID = ""
+DEFAULT_FOLDER_ID = os.environ.get("DEFAULT_FOLDER_ID", "")
 DEFAULT_AUTH_HUB_BASE = os.environ.get("AUTH_HUB_BASE", "http://127.0.0.1:8790").rstrip("/")
 DEFAULT_TARGET_APP = os.environ.get("AUTH_TARGET_APP", "presentationPublisher")
 DEFAULT_BROKER_BASE = os.environ.get(
@@ -47,9 +47,11 @@ MAX_LOG_LINES = 400
 RUNTIME_LOGS: List[str] = []
 SUPPORTED_IMAGE_MIME_TYPES = {"image/jpeg", "image/png", "image/gif", "image/webp", "image/bmp"}
 SUPPORTED_VIDEO_MIME_TYPES = {"video/mp4", "video/quicktime", "video/webm"}
-BASE_SOURCE_FOLDERS = ("Sample", "Timo", "AlbumC")
-PRIMARY_FOLDER_NAME = "Highlights"
-DEBUG_LOG_PATH = PROJECT_ROOT / "debug-98df17.log"
+BASE_SOURCE_FOLDERS = tuple(
+    f.strip() for f in os.environ.get("SOURCE_FOLDERS", "Album A,Album B,Album C").split(",") if f.strip()
+)
+PRIMARY_FOLDER_NAME = os.environ.get("PRIMARY_FOLDER_NAME", "Highlights")
+DEBUG_LOG_PATH = PROJECT_ROOT / os.environ.get("DEBUG_LOG_FILE", "debug.log")
 REQUEST_TIMEOUT_SEC = int(os.environ.get("REQUEST_TIMEOUT_SEC", "120"))
 MAX_RETRIES_PER_ITEM = int(os.environ.get("MAX_RETRIES_PER_ITEM", "3"))
 BATCH_REQUEST_SIZE = int(os.environ.get("BATCH_REQUEST_SIZE", "30"))
@@ -1843,7 +1845,7 @@ def run_pipeline():
         if coverage["missingMedia"]:
             log_event(f"Coverage: {len(coverage['missingMedia'])} Medien fehlen noch.")
         else:
-            log_event("Coverage: Keine fehlenden Medien aus Highlights/Sample/Timo/AlbumC.")
+            log_event("Coverage: Keine fehlenden Medien aus den konfigurierten Quellordnern.")
         run_log["orderedMergeInstructions"] = [
             {
                 "partIndex": 1,
