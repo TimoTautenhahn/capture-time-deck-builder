@@ -1,4 +1,4 @@
-# Vision-to-Slide Composer
+# capture-time-deck-builder
 
 Turns a folder of photos and videos into a chronologically ordered slide deck (PPTX or Google Slides), for anyone who wants an event or trip recap built automatically instead of by hand.
 
@@ -45,7 +45,7 @@ Offline PPTX from synthetic sample media (no Google account needed):
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python scripts/make_sample_media.py            # writes ./sample_media (6 placeholder images with EXIF times)
+python scripts/make_sample_media.py            # writes ./sample_media (10 placeholder images with EXIF times)
 python scripts/build_presentation.py --input sample_media
 # -> output/all_images.pptx, ordered by capture time
 ```
