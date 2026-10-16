@@ -2,6 +2,13 @@
 
 Turns a folder of photos and videos into a chronologically ordered slide deck (PPTX or Google Slides), for anyone who wants an event or trip recap built automatically instead of by hand.
 
+```text
+$ python scripts/make_sample_media.py        # 10 synthetic images, out-of-order capture times
+$ python scripts/build_presentation.py --input sample_media
+Praesentation erstellt: output/all_images.pptx
+{ "image_slides": 10, "video_poster_slides": 0, "media_items": 10 }
+```
+
 ## Why
 
 Assembling a deck from a large, mixed media folder is tedious: files arrive out of order, mix portrait and landscape, and include videos that need a poster frame. This tool resolves each item's real capture time, orders everything oldest to newest, renders consistent slides, and can publish straight to Google Slides through a small local OAuth broker.
